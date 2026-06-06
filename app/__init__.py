@@ -1,0 +1,2 @@
+"""Novel agent cockpit package."""
+

@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+.pytest_cache/
+
+data/
+
+.env
+.env.*
+
+*.db
+*.db-journal
+
+.vscode/
+.idea/
+
+HANDOFF.md
+\#\ Novel\ Agent\ Cockpit*.md
+

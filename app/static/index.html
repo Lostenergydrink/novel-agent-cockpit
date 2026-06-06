@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Novel Agent Cockpit</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <header class="topbar">
+      <div>
+        <h1>Novel Agent Cockpit</h1>
+        <p>Chat <-> Agent flow with spine locking, todo execution, and live chapter preview.</p>
+      </div>
+      <div class="toggle-group">
+        <button id="mode-chat" class="toggle active">Chat</button>
+        <button id="mode-agent" class="toggle">Agent</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel" id="chat-panel">
+        <h2>Chat Riffing</h2>
+        <div id="chat-log" class="chat-log"></div>
+        <div class="stack">
+          <textarea id="chat-input" rows="4" placeholder="Ask for brainstorm riffs, voice alternatives, or scene options..."></textarea>
+          <button id="send-chat">Send Chat Prompt</button>
+        </div>
+      </section>
+
+      <section class="panel" id="agent-panel">
+        <h2>Agent Flow</h2>
+
+        <div class="card">
+          <h3>Manuscript Source</h3>
+          <p class="helper-text">Upload a manuscript file or pick an existing one, then build or update its spine.</p>
+          <input id="manuscript-file" type="file" accept=".md,.markdown,.txt" />
+          <div class="button-row">
+            <button id="upload-manuscript">Upload &amp; Select</button>
+            <button id="refresh-manuscripts">Refresh Files</button>
+          </div>
+          <select id="existing-manuscript"></select>
+          <div class="button-row">
+            <button id="link-manuscript">Use Selected File</button>
+            <button id="new-chapter">Start New Chapter</button>
+          </div>
+          <p id="chapter-selected" class="helper-text">No chapter selected yet.</p>
+        </div>
+
+        <div class="card">
+          <h3>Build Spine</h3>
+          <input id="chapter-title" type="text" placeholder="Chapter title" value="Chapter 1" />
+          <input id="chapter-path" type="text" placeholder="Canonical path" value="manuscript/ch01.md" />
+          <textarea id="beats-input" rows="8" placeholder="One beat per line"></textarea>
+          <div class="button-row">
+            <button id="build-spine">Build Spine</button>
+            <button id="review-spine">Review Spine</button>
+            <button id="lock-spine">Lock Spine</button>
+          </div>
+          <ul id="beats-list" class="beats-list"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Execute Mode</h3>
+          <label for="run-mode">Mode</label>
+          <select id="run-mode">
+            <option value="section">Section-by-Section</option>
+            <option value="fast">Fast Writing</option>
+          </select>
+          <button id="start-run">Start Run</button>
+        </div>
+
+        <div class="card">
+          <h3>Run Actions</h3>
+          <textarea id="revise-notes" rows="3" placeholder="Revision notes for current beat"></textarea>
+          <div class="button-row">
+            <button id="approve-btn">Approve</button>
+            <button id="revise-btn">Revise</button>
+            <button id="pause-btn">Pause</button>
+            <button id="resume-btn">Resume</button>
+            <button id="cancel-btn">Cancel</button>
+            <button id="publish-btn">Publish</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Source Configuration</h3>
+          <p class="helper-text">Upload JSON config for repo/notion/mcp/notebooklm sources.</p>
+          <input id="source-config-file" type="file" accept=".json" />
+          <div class="button-row">
+            <button id="upload-source-config">Upload Source Config</button>
+            <button id="refresh-source-config">View Source Config</button>
+            <button id="validate-source-config">Validate Sources</button>
+          </div>
+          <pre id="source-config-view" class="run-log"></pre>
+        </div>
+
+        <div class="card">
+          <h3>Run Status</h3>
+          <p id="run-status">No run active.</p>
+          <p id="run-checkpoint"></p>
+          <pre id="run-log" class="run-log"></pre>
+        </div>
+      </section>
+
+      <section class="panel" id="preview-panel">
+        <h2>Live Chapter Preview</h2>
+        <pre id="preview-text" class="preview-text"></pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
