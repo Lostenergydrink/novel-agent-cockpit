@@ -2,6 +2,9 @@
 
 Local-first writing cockpit that emulates a GLM-style Chat/Agent workflow:
 
+Current backend status, known gaps, and the next recommended milestone are tracked in
+[`STATUS.md`](STATUS.md).
+
 - Chat <-> Agent toggle in one workspace
 - Spine build/review/lock flow
 - Manuscript upload/link flow (choose what exists, not hardcoded)
